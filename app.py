@@ -2,6 +2,9 @@ import streamlit as st
 from dotenv import load_dotenv
 import os
 
+# Set the environment variable to use the pure-Python implementation of protobuf
+os.environ["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "python"
+
 # Initialize environment variables
 load_dotenv()
 os.environ["USER_AGENT"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
