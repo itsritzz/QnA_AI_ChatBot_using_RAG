@@ -3,3 +3,5 @@
 *.so filter=lfs diff=lfs merge=lfs -text
 *.map filter=lfs diff=lfs merge=lfs -text
 *.js filter=lfs diff=lfs merge=lfs -text
+env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.dylib filter=lfs diff=lfs merge=lfs -text
+env/lib/python3.10/site-packages/onnxruntime/capi/onnxruntime_pybind11_state.so filter=lfs diff=lfs merge=lfs -text
