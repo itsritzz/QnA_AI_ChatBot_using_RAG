@@ -1,31 +1,31 @@
 import os
+import streamlit as st
+from dotenv import load_dotenv
 
 # Set the environment variable to use the pure-Python implementation of protobuf
 os.environ["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "python"
 
-import streamlit as st
-from dotenv import load_dotenv
+# Get the API keys from Streamlit secrets
+os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
+os.environ["LANGCHAIN_API_KEY"] = st.secrets["LANGCHAIN_API_KEY"]
 
-# Initialize environment variables from Streamlit Secrets
-os.environ["GROQ_API_KEY"] = os.getenv["GROQ_API_KEY"]
-os.environ["LANGCHAIN_API_KEY"] = os.getenv["LANGCHAIN_API_KEY"]
-
-# Import necessary components for the model
-try:
-    from langchain_groq import ChatGroq
-    from langchain_community.embeddings import HuggingFaceEmbeddings
-    from langchain.chains import create_history_aware_retriever, create_retrieval_chain
-    from langchain.chains.combine_documents import create_stuff_documents_chain
-    from langchain_chroma import Chroma
-    from langchain_community.chat_message_histories import ChatMessageHistory
-    from langchain_community.document_loaders import WebBaseLoader
-    from langchain_core.chat_history import BaseChatMessageHistory, HumanMessage, AIMessage
-    from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-    from langchain_core.runnables.history import RunnableWithMessageHistory
-    from langchain_text_splitters import RecursiveCharacterTextSplitter
-except ImportError as e:
-    st.error(f"An error occurred while importing modules: {e}")
+# Check if the API keys are loaded
+if not os.getenv("GROQ_API_KEY") or not os.getenv("LANGCHAIN_API_KEY"):
+    st.error("API keys are missing. Please check your Streamlit secrets.")
     st.stop()
+    
+from langchain_groq import ChatGroq
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain.chains import create_history_aware_retriever, create_retrieval_chain
+from langchain.chains.combine_documents import create_stuff_documents_chain
+from langchain_chroma import Chroma
+from langchain_community.chat_message_histories import ChatMessageHistory
+from langchain_community.document_loaders import WebBaseLoader
+from langchain_core.chat_history import BaseChatMessageHistory, HumanMessage, AIMessage
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from langchain_core.runnables.history import RunnableWithMessageHistory
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
 
 # Set up the model and embeddings
 llm = ChatGroq(model="llama3-8b-8192")
