@@ -7,7 +7,6 @@ langchainhub
 langchain-chroma
 sentence-transformers
 bs4
-chromadb
 langchain-groq
 protobuf==3.20.1
 
