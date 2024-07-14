@@ -8,7 +8,7 @@ os.environ["USER_AGENT"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKi
 
 # Import necessary components for the model
 from langchain_groq import ChatGroq
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_chroma import Chroma
@@ -201,8 +201,6 @@ st.markdown(
             <a href="https://itsritz.my.canva.site" target="_blank" style="color: blue;">Portfolio</a> |
             <a href="https://www.linkedin.com/in/ritesh001/" target="_blank" style="color: blue;">LinkedIn</a> | 
             <a href="https://github.com/itsritzz" target="_blank" style="color: blue;">GitHub</a> 
-            
-
         </div>
     </div>
     ''',
