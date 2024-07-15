@@ -2,20 +2,19 @@ import os
 import streamlit as st
 from dotenv import load_dotenv
 
-# Set the environment variable to use the pure-Python implementation of protobuf
-os.environ["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "python"
+load_dotenv()
 
-# Get the API keys from Streamlit secrets
-os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
-os.environ["LANGCHAIN_API_KEY"] = st.secrets["LANGCHAIN_API_KEY"]
+# Set the environment variables
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
+LANGCHAIN_API_KEY = os.environ.get("LANGCHAIN_API_KEY")
 
-# Check if the API keys are loaded
-if not os.getenv("GROQ_API_KEY") or not os.getenv("LANGCHAIN_API_KEY"):
-    st.error("API keys are missing. Please check your Streamlit secrets.")
-    st.stop()
-    
+if not GROQ_API_KEY:
+    st.error("GROQ_API_KEY is not set. Please add it to the .env file.")
+if not LANGCHAIN_API_KEY:
+    st.error("LANGCHAIN_API_KEY is not set. Please add it to the .env file.")
+
 from langchain_groq import ChatGroq
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_chroma import Chroma
