@@ -8,10 +8,6 @@ load_dotenv()
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
 LANGCHAIN_API_KEY = os.environ.get("LANGCHAIN_API_KEY")
 
-if not GROQ_API_KEY:
-    st.error("GROQ_API_KEY is not set. Please add it to the .env file.")
-if not LANGCHAIN_API_KEY:
-    st.error("LANGCHAIN_API_KEY is not set. Please add it to the .env file.")
 
 from langchain_groq import ChatGroq
 from langchain_huggingface import HuggingFaceEmbeddings
