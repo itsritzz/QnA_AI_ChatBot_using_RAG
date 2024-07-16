@@ -1,5 +1,5 @@
 # Retrieval-Augmented Generation (RAG) using LangChain
-
+![Demo Video](https://github.com/itsritzz/Langchain_RAG/blob/master/LangChian_gif/Lang_RAGbyRitz.gif)
 ## Overview
 
 This project implements a Retrieval-Augmented Generation (RAG) application using LangChain. The application leverages language models and retrievers to generate responses based on the conversation's context and additional external data retrieved from specified web links.
