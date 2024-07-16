@@ -71,7 +71,7 @@ This project implements a Retrieval-Augmented Generation (RAG) application using
 
 ### Model and Embeddings Setup
 
-- **Language Model:** Utilizes ChatGroq model for generating responses.
+- **Language Model:** Utilizes ChatGroq model for generating responses. [ChatGroq Documentation](https://js.langchain.com/v0.2/docs/integrations/chat/groq/)
 - **Embeddings:** Employs HuggingFaceEmbeddings for embedding generation.
 
 ### Session State Management
@@ -106,9 +106,9 @@ This project is licensed under the MIT License.
 
 ## Acknowledgments
 
-- **LangChain Team:** For the library and comprehensive documentation.
-- **Streamlit Team:** For providing an excellent framework for web interfaces.
-- **HuggingFace:** For the robust embeddings and model resources.
+- **LangChain Team:** For the library and comprehensive documentation. [LangChain Documentation](https://python.langchain.com/v0.2/docs/tutorials/)
+- **Streamlit Team:** For providing an excellent framework for web interfaces. [Streamlit Documentation](https://docs.streamlit.io)
+- **HuggingFace:** For the robust embeddings and model resources. [HuggingFace Documentation](https://huggingface.co/blog/getting-started-with-embeddings)
 
 ## Contact
 
