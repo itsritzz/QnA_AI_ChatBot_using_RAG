@@ -1,4 +1,4 @@
-# Retrieval-Augmented Generation (RAG) using LangChain
+# Q&A AI ChatBot leveraging Retrieval-Augmented Generation (RAG) and LangChain
 ![Demo Video](https://github.com/itsritzz/Langchain_RAG/blob/master/LangChian_gif/Lang_RAGbyRitz.gif)
 ## Overview
 
